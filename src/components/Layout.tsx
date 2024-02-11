@@ -14,7 +14,7 @@ function Layout() {
         const windowHeight = () => {
             if(mainLayout.current) {
                 const ele = mainLayout.current
-                ele.style.height = `${window.innerHeight-40}px`;
+                ele.style.height = `${window.innerHeight}px`;
             }
         }
         window.addEventListener('resize', windowHeight)
@@ -86,11 +86,11 @@ function Layout() {
           userChatScreenRef.current.style.display = "flex";
         }
       }
-    },[window.innerWidth,chatRoom])
+    },[chatRoom,window.innerWidth])
     return (
       <>
         <div className="main-layout" ref={mainLayout}>
-            <ChatList list={userList} chatActive={setChatRoom} reference={usersChatListRef}/>
+            <ChatList list={userList} chatRoom={chatRoom ? chatRoom : ''} chatActive={setChatRoom} reference={usersChatListRef}/>
             <ChatScreen chatRoom={chatRoom} user1={firstUser} user2={getUser2()} reference={userChatScreenRef} chatActive={setChatRoom}/>
         </div>
       </>

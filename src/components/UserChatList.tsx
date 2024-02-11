@@ -8,9 +8,10 @@ type Props = {
     list:userList,
     chatActive: Dispatch<SetStateAction<string | null>>
     reference: RefObject<HTMLDivElement>
+    chatRoom: string
 }
 
-function ChatList({list,chatActive,reference}: Props){
+function ChatList({list,chatActive,reference,chatRoom}: Props){
     const handleKeyEvent = (e:string, chatId: string) => {
         if(e === 'Enter') {
             chatActive(chatId)
@@ -21,7 +22,7 @@ function ChatList({list,chatActive,reference}: Props){
         <Header />
         <div className='users-container'>
             {list && list.map((user) => 
-            <div onClick={() => chatActive(user.chatroom_id)} style={{cursor:'pointer'}} key={user.id} tabIndex={0} onKeyDown={(e) => handleKeyEvent(e.key,user.chatroom_id)}>
+            <div onClick={() => chatActive(user.chatroom_id)} style={{cursor:'pointer', background: chatRoom === user.chatroom_id ? '#eee': '#fff'}} key={user.id} tabIndex={0} onKeyDown={(e) => handleKeyEvent(e.key,user.chatroom_id)}>
                 <Users user={user}/>
             </div>)}
         </div>

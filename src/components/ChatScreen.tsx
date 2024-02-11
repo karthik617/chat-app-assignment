@@ -36,11 +36,10 @@ function ChatScreen({chatRoom, user1, user2, reference,chatActive}:Props){
       }, [chatRoom])
     
     // adds random message to the conversion from receiver end
-    // with the probability of 0.5 (Math.floor(Math.random() * (sentence.length - 1)) > 5)
     const getRandomText = () => {
         let index= Math.floor(Math.random() * (sentence.length - 1))
         const text = sentence[index]
-        if (user1 && user2 && user2.id !== undefined && user1.id !== undefined && Math.floor(Math.random() * (sentence.length - 1)) > 5) {
+        if (user1 && user2 && user2.id !== undefined && user1.id !== undefined) {
             setConversation(prev => [
                 ...prev,
                 { senderId: user2.id, receiverId:user1.id ? user1.id :1, content: text, timestamp: new Date().toISOString() }
@@ -57,7 +56,9 @@ function ChatScreen({chatRoom, user1, user2, reference,chatActive}:Props){
           ]);
           
           // to get random Text from other user
-          getRandomText()
+          setTimeout(() => {
+            getRandomText()
+          }, 1000)
     }
 
     // to save message to the localstorage
