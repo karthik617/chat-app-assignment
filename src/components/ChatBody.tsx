@@ -18,10 +18,10 @@ function ChatBody({messages, sender,senderName,receiverName}:Props) {
     }, [messages]);
     const styleSender = {
         borderRadius: "10px 0px 10px 10px",
-        backgroundColor: "#5f5d5d",
+        backgroundColor: "#747bff",
         color: "white",
-        boxShadow: "-1px 1px 1px 1px rgba(0, 0, 0, .5)",
-        border:"1px solid rgba(0, 0, 0, .1)"
+        boxShadow: "-1px 1px 1px 1px rgba(0, 0, 255, .2)",
+        border:"1px solid rgba(0, 0, 255, .2)"
     }
     const styleReceiver = {
         borderRadius: "0px 10px 10px 10px",

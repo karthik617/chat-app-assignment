@@ -28,9 +28,10 @@
     display: flex;
     padding: 10px;
     gap: 2px;
+    border-bottom: 1px solid #eee
 }
 .user:hover {
-    background-color: #eee;
+    background-color: #d6d6d6;
 }
 .profile-icon {
     width: 50px;
@@ -41,7 +42,7 @@
 }
 .profile-desc {
     flex: 1;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     display: flex;
     flex-direction: column;
 }
