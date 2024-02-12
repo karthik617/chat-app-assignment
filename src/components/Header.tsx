@@ -6,7 +6,7 @@ function Header() {
         <div className="header">
             <img src={Logo} alt="app-logo" className='logo'/>
             <div className='title'>
-                Chats
+                Chat.
             </div>
         </div>
     </>

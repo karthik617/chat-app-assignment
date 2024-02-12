@@ -4,8 +4,9 @@ type Props ={
     text:string,
     userName: string | undefined,
     time: string | undefined
+    style: Object
 }
-function MessageContent({text,userName,time}:Props) {
+function MessageContent({text,userName,time,style}:Props) {
     const date = new Date(time?time:"");
     const textMessagae = useRef<HTMLDivElement>(null)
 
@@ -18,7 +19,7 @@ function MessageContent({text,userName,time}:Props) {
         return splitTextArray.join('\n');
     }
     return <>
-     <div className="message-content">
+     <div className="message-content" style={style}>
         <div className="user-name">{userName}</div>
         <div className="message" ref={textMessagae}>{text.length > 50 ? splitText(text,49): text}</div>
         <div className="time">{date.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}).toLowerCase()}</div>

@@ -16,12 +16,25 @@ function ChatBody({messages, sender,senderName,receiverName}:Props) {
             chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight;
         }
     }, [messages]);
+    const styleSender = {
+        borderRadius: "10px 0px 10px 10px",
+        backgroundColor: "#5f5d5d",
+        color: "white",
+        boxShadow: "-1px 1px 1px 1px rgba(0, 0, 0, .5)",
+        border:"1px solid rgba(0, 0, 0, .1)"
+    }
+    const styleReceiver = {
+        borderRadius: "0px 10px 10px 10px",
+        backgroundColor: "#eee",
+        boxShadow: "1px 1px 1px 1px rgba(0, 0, 255, .2)",
+        border:"1px solid rgba(0, 0, 255, .2)"
+    }
     return <>
     <div className='chat-body' ref={chatBodyRef}>
         {
             messages.length > 0 && messages.map((message,index) => 
                 <div className="message-container" key={message.timestamp+index} style={{justifyContent: sender && sender === message.senderId ? "flex-end": "flex-start"}}>
-                    {sender && sender === message.senderId ? <MessageContent text={message.content} userName={senderName} time={message.timestamp}/>:<MessageContent text={message.content} userName={receiverName} time={message.timestamp}/>}
+                    {sender && sender === message.senderId ? <MessageContent text={message.content} userName={senderName} time={message.timestamp} style={styleSender}/>:<MessageContent text={message.content} userName={receiverName} time={message.timestamp} style={styleReceiver}/>}
                 </div>
             )
         }
