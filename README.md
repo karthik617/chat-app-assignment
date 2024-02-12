@@ -15,4 +15,5 @@ Currently, two official plugins are available:
 - The Message are displayed in chronological order with the latest message at the bottom
 - The Ui is design to been compatiable with different screen and also mobile view
 - Finally the project as been deployed over vercel for Quick look the design and functonality
+- hosted link - https://chat-app-assignment-git-master-karthik617s-projects.vercel.app
  
